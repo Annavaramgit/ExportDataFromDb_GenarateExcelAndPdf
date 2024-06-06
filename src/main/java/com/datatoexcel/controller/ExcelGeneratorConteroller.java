@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.datatoexcel.service.ExcelService;
 
 import jakarta.servlet.http.HttpServletResponse;
-
-
+//--->this class is genaratess excel file
+//--->this controller class service layer-->service layer gets data from db and creats excel workbook and write data in on that work book
+//--->then service layer write that workbook in the respose obj
+//--->controller gets that respose object and genaratates downloadable excel file
 @RestController
 public class ExcelGeneratorConteroller {
 	
@@ -34,6 +36,7 @@ public class ExcelGeneratorConteroller {
 	@GetMapping("/excelGenarator")
 	public void generateExcelReport(HttpServletResponse response) throws IOException{
 		
+		//which indicates that the response will be a binary file.
 		response.setContentType("application/octet-stream");
 		
 		//this Content-Disposition mean tells to our application genarate response as attatchment
